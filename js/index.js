@@ -116,6 +116,7 @@ navItems = document.querySelectorAll('nav a');
 navItems.forEach(item => (item.style.color = 'green'));
 
 let body = document.querySelector('body');
+body.style.transition = 'all 0.3s ease';
 
 // Dark / Light Mode Toggle
 ctaButton.addEventListener('click', function() {
@@ -131,9 +132,12 @@ ctaButton.addEventListener('click', function() {
     paragraphs.forEach(p => (p.style.color = 'white'));
     navItems.forEach(a => (a.style.color = 'white'));
     ctaText.style.color = 'white';
-    logo.src = 'img/logo--inverted.png';
-    ctaImg.src = 'img/header-img--inverted.png';
-    middleImg.src = 'img/mid-page-accent--inverted.png';
+    logo.style.filter = 'invert(100%)';
+    ctaImg.style.filter = 'invert(100%)';
+    middleImg.style.filter = 'invert(100%)';
+    // logo.src = 'img/logo--inverted.png';
+    // ctaImg.src = 'img/header-img--inverted.png';
+    // middleImg.src = 'img/mid-page-accent--inverted.png';
     mainContent.style.borderTop = '2px solid white';
     mainContent.style.borderBottom = '2px solid white';
   } else {
@@ -143,9 +147,12 @@ ctaButton.addEventListener('click', function() {
     paragraphs.forEach(p => (p.style.color = '#000'));
     navItems.forEach(a => (a.style.color = 'green'));
     ctaText.style.color = 'black';
-    logo.src = siteContent.nav['img-src'];
-    ctaImg.src = siteContent.cta['img-src'];
-    middleImg.src = siteContent['main-content']['middle-img-src'];
+    // logo.src = siteContent.nav['img-src'];
+    // ctaImg.src = siteContent.cta['img-src'];
+    // middleImg.src = siteContent['main-content']['middle-img-src'];
+    logo.style.filter = 'invert(0)';
+    ctaImg.style.filter = 'invert(0)';
+    middleImg.style.filter = 'invert(0)';
     mainContent.style.borderTop = '2px solid black';
     mainContent.style.borderBottom = '2px solid black';
   }
