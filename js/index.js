@@ -61,7 +61,7 @@ let ctaText = document.querySelector('.cta h1');
 ctaText.innerText = siteContent.cta.h1;
 
 let ctaButton = document.querySelector('.cta button');
-ctaButton.innerText = siteContent.cta.button;
+ctaButton.innerText = 'Dark Mode';
 
 let ctaImg = document.getElementById('cta-img');
 ctaImg.src = siteContent.cta['img-src'];
@@ -114,3 +114,39 @@ nav.appendChild(appendedItem);
 // Change the color of the navigation text to be green.
 navItems = document.querySelectorAll('nav a');
 navItems.forEach(item => (item.style.color = 'green'));
+
+let body = document.querySelector('body');
+
+// Dark / Light Mode Toggle
+ctaButton.addEventListener('click', function() {
+  body.classList.toggle('darkmode');
+  let paragraphs = document.querySelectorAll('p');
+  let h4s = document.querySelectorAll('h4');
+  let mainContent = document.querySelector('.main-content');
+
+  if (body.classList.contains('darkmode')) {
+    ctaButton.innerText = 'Light Mode';
+    body.style.background = '#313537';
+    h4s.forEach(h4 => (h4.style.color = 'white'));
+    paragraphs.forEach(p => (p.style.color = 'white'));
+    navItems.forEach(a => (a.style.color = 'white'));
+    ctaText.style.color = 'white';
+    logo.src = 'img/logo--inverted.png';
+    ctaImg.src = 'img/header-img--inverted.png';
+    middleImg.src = 'img/mid-page-accent--inverted.png';
+    mainContent.style.borderTop = '2px solid white';
+    mainContent.style.borderBottom = '2px solid white';
+  } else {
+    ctaButton.innerText = 'Dark Mode';
+    body.style.background = '#fff';
+    h4s.forEach(h4 => (h4.style.color = '#000'));
+    paragraphs.forEach(p => (p.style.color = '#000'));
+    navItems.forEach(a => (a.style.color = 'green'));
+    ctaText.style.color = 'black';
+    logo.src = siteContent.nav['img-src'];
+    ctaImg.src = siteContent.cta['img-src'];
+    middleImg.src = siteContent['main-content']['middle-img-src'];
+    mainContent.style.borderTop = '2px solid black';
+    mainContent.style.borderBottom = '2px solid black';
+  }
+});
