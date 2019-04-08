@@ -103,12 +103,12 @@ footerP.innerText = siteContent.footer.copyright;
 // Utilize .appendChild() and .prepend() to add two new items to the navigation system.
 let prependedItem = document.createElement('a');
 prependedItem.href = '#';
-prependedItem.textContent = 'Prepend';
+prependedItem.innerText = 'Prepend';
 nav.prepend(prependedItem);
 
 let appendedItem = document.createElement('a');
 appendedItem.href = '#';
-appendedItem.textContent = 'Append';
+appendedItem.innerText = 'Append';
 nav.appendChild(appendedItem);
 
 // Change the color of the navigation text to be green.
